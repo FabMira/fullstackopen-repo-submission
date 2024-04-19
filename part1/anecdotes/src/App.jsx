@@ -22,6 +22,7 @@ const App = () => {
   ]
   const [selected, setSelected] = useState(0)
   const [num, setNum] = useState(0)
+  const [points ,setPoints] = useState(new Uint8Array(7))
 
   const randomState = () => {
     const minCeiled = Math.ceil(0)
@@ -36,11 +37,20 @@ const App = () => {
     setSelected(updateAnecdote)
   }
 
+  const vote = () => {
+    console.log(points)
+    const copy = [ ...points]
+    copy[selected] += 1
+    console.log(copy)
+    setPoints(copy)
+  }
+
 
   return (
     <div>
       <h1>Anecdotes</h1>
       {anecdotes[selected]}<br></br>
+      <Button handleClick={vote} text="vote" /> {' '}
       <Button handleClick={randomState} text="next anecdote" />
     </div>
   )
