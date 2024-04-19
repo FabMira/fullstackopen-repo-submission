@@ -42,7 +42,6 @@ const App = () => {
       <h1>Anecdotes</h1>
       {anecdotes[selected]}<br></br>
       <Button handleClick={randomState} text="next anecdote" />
-      <p>esto es una prueba 2</p>
     </div>
   )
 }
