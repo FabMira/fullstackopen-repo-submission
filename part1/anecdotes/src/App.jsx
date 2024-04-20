@@ -21,8 +21,8 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
   const [selected, setSelected] = useState(0)
-  const [num, setNum] = useState(0)
-  const [points ,setPoints] = useState(new Uint8Array(7))
+  const [mostVoted, setMostV] = useState(0)
+  const [points ,setPoints] = useState(new Uint8Array(8))
 
   const randomState = () => {
     const minCeiled = Math.ceil(0)
@@ -38,11 +38,14 @@ const App = () => {
   }
 
   const vote = () => {
-    console.log(points)
     const copy = [ ...points]
     copy[selected] += 1
-    console.log(copy)
     setPoints(copy)
+    console.log(copy)
+    const mvIndex = copy.indexOf(Math.max(...copy))
+    console.log("index is: ", mvIndex)
+    setMostV(mvIndex)
+    console.log(mostVoted)
   }
 
 
@@ -52,6 +55,8 @@ const App = () => {
       {anecdotes[selected]}<br></br>
       <Button handleClick={vote} text="vote" /> {' '}
       <Button handleClick={randomState} text="next anecdote" />
+      <h2>Anecdote with most votes</h2>
+      {anecdotes[mostVoted]}
     </div>
   )
 }
