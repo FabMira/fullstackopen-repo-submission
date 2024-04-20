@@ -28,11 +28,8 @@ const App = () => {
     const minCeiled = Math.ceil(0)
     const maxFloored = Math.floor(7)
     let updateAnecdote = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled)
-    console.log("present Value: ", selected)
-    console.log("first value: " , updateAnecdote)
     if ( updateAnecdote == selected ) {
       updateAnecdote = updateAnecdote = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled)
-      console.log("value after repetition: " , updateAnecdote)
     }
     setSelected(updateAnecdote)
   }
@@ -41,11 +38,8 @@ const App = () => {
     const copy = [ ...points]
     copy[selected] += 1
     setPoints(copy)
-    console.log(copy)
     const mvIndex = copy.indexOf(Math.max(...copy))
-    console.log("index is: ", mvIndex)
     setMostV(mvIndex)
-    console.log(mostVoted)
   }
 
 
